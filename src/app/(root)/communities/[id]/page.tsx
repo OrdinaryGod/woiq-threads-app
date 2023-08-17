@@ -23,6 +23,8 @@ export default async function Page({ params }: { params: { id: string } }) {
                 username={communityInfo.username}
                 image={communityInfo.image}
                 bio={communityInfo.bio}
+                authUserId={user.id}
+                type="Community"
             />
 
             <Tabs defaultValue="threads" className="w-full">

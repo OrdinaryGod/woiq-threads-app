@@ -25,6 +25,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                 username={userInfo.username}
                 image={userInfo.image}
                 bio={userInfo.bio}
+                authUserId={user.id}
             />
 
             <Tabs defaultValue="threads" className="w-full">
