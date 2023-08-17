@@ -1,4 +1,5 @@
 import CommunityCard from '@/components/cards/CommunityCard'
+import Pagination from '@/components/shared/Pagination';
 import SearchBar from '@/components/shared/SearchBar';
 import { fetchCommunities } from '@/lib/actions/community.action';
 import { fetchUser } from '@/lib/actions/user.action';
@@ -14,61 +15,13 @@ async function Page({ searchParams }: { searchParams: { [key: string]: string | 
 
     // console.log('---------', searchParams);
 
+    // TODO 待优化 这个查询很占内存
     const result = await fetchCommunities({
         searchString: searchParams.q || '',
         pageNumber: searchParams?.page ? +searchParams.page : 1,
         pageSize: 20
     })
-
     // console.log('users------', result);
-
-    if (!result.communities.length) {
-        result.communities = [
-            {
-                id: '001',
-                name: 'Neue',
-                username: 'neue',
-                image: 'https://images.clerk.dev/oauth_google/img_2TuXz5jZZHgpZw6S9YCLxrkHYnL.png',
-                bio: 'this is bio',
-                members: [
-                    { image: 'https://images.clerk.dev/oauth_google/img_2TuXz5jZZHgpZw6S9YCLxrkHYnL.png' },
-                    { image: 'https://images.clerk.dev/oauth_google/img_2TuXz5jZZHgpZw6S9YCLxrkHYnL.png' },
-                    { image: 'https://images.clerk.dev/oauth_google/img_2TuXz5jZZHgpZw6S9YCLxrkHYnL.png' }
-                ]
-            },
-            {
-                id: '002',
-                name: 'Neue',
-                username: 'neue',
-                image: 'https://images.clerk.dev/oauth_google/img_2TuXz5jZZHgpZw6S9YCLxrkHYnL.png',
-                bio: 'this is bio',
-                members: [{
-                    image: 'https://images.clerk.dev/oauth_google/img_2TuXz5jZZHgpZw6S9YCLxrkHYnL.png'
-                }]
-            },
-            {
-                id: '003',
-                name: 'Neue',
-                username: 'neue',
-                image: 'https://images.clerk.dev/oauth_google/img_2TuXz5jZZHgpZw6S9YCLxrkHYnL.png',
-                bio: 'this is bio',
-                members: [{
-                    image: 'https://images.clerk.dev/oauth_google/img_2TuXz5jZZHgpZw6S9YCLxrkHYnL.png'
-                }]
-            },
-            {
-                id: '004',
-                name: 'Neue',
-                username: 'neue',
-                image: 'https://images.clerk.dev/oauth_google/img_2TuXz5jZZHgpZw6S9YCLxrkHYnL.png',
-                bio: 'this is bio',
-                members: [
-                    { image: 'https://images.clerk.dev/oauth_google/img_2TuXz5jZZHgpZw6S9YCLxrkHYnL.png' },
-                    { image: 'https://images.clerk.dev/oauth_google/img_2TuXz5jZZHgpZw6S9YCLxrkHYnL.png' }
-                ]
-            }
-        ]
-    }
 
     return (
         <section className="">
@@ -96,7 +49,11 @@ async function Page({ searchParams }: { searchParams: { [key: string]: string | 
                 }
             </div>
 
-            {/* TODO Pagintion */}
+            <Pagination
+                path='/'
+                pageNumber={searchParams?.page ? +searchParams.page : 1}
+                isNext={result.isNext}
+            />
 
         </section>
     )

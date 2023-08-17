@@ -20,11 +20,13 @@ export default async function Page({ params }: { params: { id: string } }) {
         <section>
             <div>
                 <ThreadCard
-                    // key={result._id}
                     currentUserId={user.id}
                     author={result.author}
                     content={result.text}
                     threadId={result._id}
+                    community={result.community}
+                    createdAt={result.createdAt}
+                    parentId={result.parentId}
                     comments={result.children}
                 />
             </div>
@@ -46,6 +48,9 @@ export default async function Page({ params }: { params: { id: string } }) {
                             author={threadChildrenItem.author}
                             content={threadChildrenItem.text}
                             threadId={threadChildrenItem._id}
+                            community={threadChildrenItem.community}
+                            createdAt={threadChildrenItem.createdAt}
+                            parentId={threadChildrenItem.parentId}
                             comments={threadChildrenItem.children}
                             isComment
                         />

@@ -57,7 +57,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                         accountType='Community'
                     />
                 </TabsContent>
-                <TabsContent key={`content-members`} value={`Members`} className="">
+                <TabsContent key={`content-members`} value={`members`} className="">
                     <section className='mt-9 flex flex-col gap-10'>
                         {communityInfo.members.map((member: any) => (
                             <UserCard
@@ -71,7 +71,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                         ))}
                     </section>
                 </TabsContent>
-                <TabsContent key={`content-requests`} value={`Requests`} className="">
+                <TabsContent key={`content-requests`} value={`requests`} className="">
                     {/* @ts-ignore */}
                     <ThreadsTab
                         currentUserId={user.id}
