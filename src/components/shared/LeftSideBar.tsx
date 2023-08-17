@@ -3,18 +3,20 @@ import { sidebarLinks } from "@/constants/index";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
-import { SignedIn, SignOutButton } from "@clerk/nextjs";
+import { SignedIn, SignOutButton, useAuth } from "@clerk/nextjs";
 
 // type SidebarLink = { imgURL: string, route: string, label: string }
 
 export default function LeftSideBar() {
     const pathname = usePathname()
     const router = useRouter()
+    const { userId } = useAuth()
     return (
         <section className="leftsidebar custom-scrollbar">
             <div className="flex flex-1 flex-col w-full gap-6 px-6">
                 {sidebarLinks.map((link) => {
                     const isActive = pathname === link.route
+                    if (link.route === '/profile') link.route = `/profile/${userId}`;
                     return (
                         <Link
                             href={link.route}
