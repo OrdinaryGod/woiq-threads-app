@@ -33,7 +33,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
             <div className="">
                 <ThreadComment
-                    user_Id={userInfo._id}
+                    user_Id={JSON.stringify(userInfo._id)}
                     userImage={userInfo.image}
                     threadId={result.id}
                 />

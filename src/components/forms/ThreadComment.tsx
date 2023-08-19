@@ -23,7 +23,7 @@ function ThreadComment({ user_Id, threadId, userImage }: { user_Id: string, thre
     })
 
     async function onSubmit(values: z.infer<typeof ThreadCommentValidationSchema>) {
-        await addCommentToThread(threadId, values.thread, user_Id, pathname);
+        await addCommentToThread(threadId, values.thread, JSON.parse(user_Id), pathname);
 
         form.reset();
     }

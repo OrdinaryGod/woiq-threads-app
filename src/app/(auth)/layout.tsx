@@ -6,8 +6,8 @@ import { dark } from '@clerk/themes'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-    title: 'Woiq-windy',
-    description: 'A full stack next app',
+    title: 'Welcome to Threads',
+    description: 'A free and open community App',
 }
 
 export default function RootLayout({

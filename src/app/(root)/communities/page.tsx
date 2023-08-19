@@ -17,11 +17,11 @@ async function Page({ searchParams }: { searchParams: { [key: string]: string | 
 
     // TODO 待优化 这个查询很占内存
     const result = await fetchCommunities({
-        searchString: searchParams.q || '',
+        searchString: searchParams.q,
         pageNumber: searchParams?.page ? +searchParams.page : 1,
-        pageSize: 20
-    })
-    // console.log('users------', result);
+        pageSize: 25,
+    });
+    // console.log('users------', result.communities[0].members);
 
     return (
         <section className="">
@@ -34,6 +34,7 @@ async function Page({ searchParams }: { searchParams: { [key: string]: string | 
             <div className='mt-9 flex flex-wrap gap-4'>
                 {
                     result.communities.map((item) => {
+                        const members = item.members.map((member: any) => ({ image: member.image }))
                         return (
                             <CommunityCard
                                 key={item.id}
@@ -42,7 +43,7 @@ async function Page({ searchParams }: { searchParams: { [key: string]: string | 
                                 username={item.username}
                                 imageUrl={item.image}
                                 bio={item.bio}
-                                members={item.members}
+                                members={members}
                             />
                         )
                     })

@@ -142,7 +142,12 @@ export async function fetchCommunities({
       .sort(sortOptions)
       .skip(skipAmount)
       .limit(pageSize)
-      .populate("members");
+      .populate({
+        path: "members",
+        model: User,
+        select: 'id _id image'
+      })
+    // .populate("members");
 
     // Count the total number of communities that match the search criteria (without pagination).
     const totalCommunitiesCount = await Community.countDocuments(query);

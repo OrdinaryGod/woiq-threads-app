@@ -27,7 +27,7 @@ export default async function Home(
   // console.log('result----', result.posts)
 
   return (
-    <section>
+    <>
       <h1 className="mb-6 head-text">Home</h1>
 
       <div className="flex flex-col gap-10">
@@ -56,6 +56,6 @@ export default async function Home(
         isNext={result.isNext}
       />
 
-    </section>
+    </>
   )
 }

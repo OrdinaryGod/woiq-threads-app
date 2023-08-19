@@ -21,14 +21,15 @@ export default function TopBar() {
                     <SignedIn>
                         {/* <UserButton afterSignOutUrl="/" /> */}
                         <SignOutButton>
-                            <div className="flex cursor-pointer'">
-                                <Image
-                                    src="/assets/logout.svg"
-                                    alt="logout"
-                                    width={24}
-                                    height={24}
-                                />
-                            </div>
+                            {/* <div className="flex cursor-pointer"> */}
+                            <Image
+                                src="/assets/logout.svg"
+                                alt="logout"
+                                width={24}
+                                height={24}
+                                className="flex cursor-pointer"
+                            />
+                            {/* </div> */}
                         </SignOutButton>
                     </SignedIn>
                 </div>

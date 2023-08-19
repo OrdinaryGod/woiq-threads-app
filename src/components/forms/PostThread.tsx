@@ -21,14 +21,14 @@ function PostThread({ userId }: { userId: string }) {
         resolver: zodResolver(ThreadValidationSchema),
         defaultValues: {
             thread: '',
-            accountId: userId
+            accountId: JSON.parse(userId)
         },
     })
 
     async function onSubmit(values: z.infer<typeof ThreadValidationSchema>) {
         const data = {
             text: values.thread,
-            author: userId,
+            author: JSON.parse(JSON.parse(userId)),
             communityId: organization ? organization.id : null,
             path: pathname,
         }
