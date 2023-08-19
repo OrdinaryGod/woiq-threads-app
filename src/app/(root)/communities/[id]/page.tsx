@@ -18,7 +18,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     return (
         <div>
             <ProfileHeader
-                accountId={communityInfo._id}
+                accountId={communityInfo.createdBy.id}
                 name={communityInfo.name}
                 username={communityInfo.username}
                 image={communityInfo.image}
