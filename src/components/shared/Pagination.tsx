@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-
+import {useTranslations} from 'next-intl';
 import { Button } from "../ui/button";
 
 interface Props {
@@ -12,6 +12,7 @@ interface Props {
 
 function Pagination({ pageNumber, isNext, path }: Props) {
   const router = useRouter();
+  const t = useTranslations('Pagination');
 
   const handleNavigation = (type: string) => {
     let nextPageNumber = pageNumber;
@@ -38,7 +39,7 @@ function Pagination({ pageNumber, isNext, path }: Props) {
         disabled={pageNumber === 1}
         className='!text-small-regular text-light-2'
       >
-        Prev
+        {t('Prev')}
       </Button>
       <p className='text-small-semibold text-light-1'>{pageNumber}</p>
       <Button
@@ -46,7 +47,7 @@ function Pagination({ pageNumber, isNext, path }: Props) {
         disabled={!isNext}
         className='!text-small-regular text-light-2'
       >
-        Next
+        {t('Next')}
       </Button>
     </div>
   );

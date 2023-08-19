@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Input } from "../ui/input"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
+import {useTranslations} from 'next-intl';
 
 interface Props {
     routeType: string
@@ -11,6 +12,7 @@ interface Props {
 export default function SearchBar({ routeType }: Props) {
     const router = useRouter()
     const [searchStr, setSearchtr] = useState('')
+    const t = useTranslations('searchBar');
 
     useEffect(() => {
         // 节流防抖
@@ -38,7 +40,7 @@ export default function SearchBar({ routeType }: Props) {
                 type="text"
                 value={searchStr}
                 onChange={(e) => setSearchtr(e.target.value)}
-                placeholder={routeType === 'search' ? 'Search creators' : 'Search communities'}
+                placeholder={routeType === 'search' ? t('Search creators') : t('Search communities')}
                 className="searchbar_input no-focus"
             />
         </div>

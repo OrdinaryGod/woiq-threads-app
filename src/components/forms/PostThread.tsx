@@ -1,5 +1,5 @@
 'use client'
-
+import {useTranslations} from 'next-intl';
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
@@ -16,6 +16,7 @@ function PostThread({ userId }: { userId: string }) {
     const router = useRouter();
     const pathname = usePathname()
     const { organization } = useOrganization()
+    const t = useTranslations('PostHead');
 
     const form = useForm({
         resolver: zodResolver(ThreadValidationSchema),
@@ -46,7 +47,7 @@ function PostThread({ userId }: { userId: string }) {
                     name="thread"
                     render={({ field }) => (
                         <FormItem className="flex flex-col gap-3 w-full">
-                            <FormLabel className="text-base-regular text-light-2">Content</FormLabel>
+                            <FormLabel className="text-base-regular text-light-2">{t('Content')}</FormLabel>
                             <FormControl className="no-focus border border-dark-4 bg-dark-3 text-light-1">
                                 <Textarea
                                     rows={15}
@@ -56,7 +57,7 @@ function PostThread({ userId }: { userId: string }) {
                         </FormItem>
                     )}
                 />
-                <Button type="submit" className="bg-primary-500">Post Thread</Button>
+                <Button type="submit" className="bg-primary-500">{t('Post Thread')}</Button>
             </form>
         </Form>
     )

@@ -1,0 +1,29 @@
+{
+  "Index": {
+    "title": "Hello world!"
+  },
+  "Button": {
+    "View": "View"
+  },
+  "leftSideBar": {
+    "logout": "logout",
+    "Home": "Home",
+    "Search": "Search",
+    "Activity": "Activity",
+    "Create Thread": "Create Thread",
+    "Communities": "Communities",
+    "Profile": "Profile"
+  },
+  "searchBar": {
+    "Search creators": "Search creators",
+    "Search communities": "Search communities"
+  },
+  "PostHead": {
+    "Content": "Content",
+    "Post Thread": "Post Thread"
+  },
+  "Pagination": {
+    "Prev": "Prev",
+    "Next": "Next"
+}
+}

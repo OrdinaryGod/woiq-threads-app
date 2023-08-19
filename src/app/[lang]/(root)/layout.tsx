@@ -1,5 +1,5 @@
 import { ClerkProvider } from '@clerk/nextjs'
-import '../globals.css'
+import '../../globals.css'
 import { Inter } from 'next/font/google'
 import TopBar from "@/components/shared/TopBar";
 import LeftSideBar from "@/components/shared/LeftSideBar";
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider>
+    // <ClerkProvider>
       <html lang="en">
         <body className={`${inter.className} bg-dark-1`}>
           <TopBar />
@@ -39,6 +39,6 @@ export default function RootLayout({
           <BottomBar />
         </body>
       </html>
-    </ClerkProvider>
+    // </ClerkProvider>
   )
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { SignedIn, SignOutButton, useAuth } from "@clerk/nextjs";
+import {useTranslations} from 'next-intl';
 
 // type SidebarLink = { imgURL: string, route: string, label: string }
 
@@ -11,6 +12,7 @@ export default function LeftSideBar() {
     const pathname = usePathname()
     const router = useRouter()
     const { userId } = useAuth()
+    const t = useTranslations('leftSideBar');
     return (
         <section className="leftsidebar custom-scrollbar">
             <div className="flex flex-1 flex-col w-full gap-6 px-6">
@@ -25,7 +27,7 @@ export default function LeftSideBar() {
                             ${isActive && 'bg-primary-500'}`}
                         >
                             <Image src={link.imgURL} width={24} height={24} alt={link.label} />
-                            <p className=" max-lg:hidden text-light-1">{link.label}</p>
+                            <p className=" max-lg:hidden text-light-1">{t(link.label)}</p>
                         </Link>
                     )
                 })}
@@ -41,7 +43,7 @@ export default function LeftSideBar() {
                                 width={24}
                                 height={24}
                             />
-                            <p className="text-light-2 max-lg:hidden">logout</p>
+                            <p className="text-light-2 max-lg:hidden">{t('logout')}</p>
                         </div>
                     </SignOutButton>
                 </SignedIn>

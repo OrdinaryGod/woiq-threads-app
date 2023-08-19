@@ -1,0 +1,29 @@
+{
+    "Index": {
+        "title": "你好！"
+    },
+    "Button": {
+        "View": "查看"
+    },
+    "leftSideBar": {
+        "logout": "退出",
+        "Home": "主页",
+        "Search": "搜索",
+        "Activity": "活动",
+        "Create Thread": "创建 Thread",
+        "Communities": "社区",
+        "Profile": "简介"
+    },
+    "searchBar": {
+        "Search creators": "搜索作者",
+        "Search communities": "搜索社区"
+    },
+    "PostHead": {
+        "Content": "内容",
+        "Post Thread": "发送Thread"
+    },
+    "Pagination": {
+        "Prev": "上一页",
+        "Next": "下一页"
+    }
+}

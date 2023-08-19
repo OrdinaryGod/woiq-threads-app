@@ -11,7 +11,7 @@ export default async function Home(
   {
     searchParams
   }: {
-    searchParams: { [key: string]: string | undefined };
+    searchParams: { [key: string]: string | undefined }
   }
 ) {
   const user = await currentUser();
